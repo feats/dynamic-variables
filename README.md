@@ -89,6 +89,10 @@ I hope you enjoy using this tiny lib! 🎉
 
 ![divider](.github/divider.png)
 
+<br />
+<br />
+<br />
+
 <a href="https://feats.co">
   <p align="center"><img src="./.github/feats.png" width="171" /><p>
 </a>
@@ -99,3 +103,7 @@ I hope you enjoy using this tiny lib! 🎉
 </a>
 <sub>Join a community of people helping each other get credit for their roles in projects.<br />From developing products and apps to architecture and campaigns.</sub>
 </p>
+
+<br />
+<br />
+<br />
