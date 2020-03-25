@@ -92,3 +92,15 @@ For more examples, please check the [tests file](./index.test.js).
 I hope you enjoy using this tiny lib! 🎉
 
 ![divider](.github/divider.png)
+
+<a href="https://feats.co">
+  <p align="center"><img src="./.github/feats.png" width="171" /><p>
+</a>
+<br>
+
+<p align="center">
+<a href="https://feats.co">
+  <strong>This project is sponsored by feats.</strong><br />
+</a>
+<sub>Join a community of people helping each other get credit for their roles in projects.<br />From developing products and apps to architecture and campaigns.</sub>
+</p>
