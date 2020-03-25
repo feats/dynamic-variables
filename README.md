@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  [ <a href="#getting-started">Getting started 🤓</a> | <a href="https://www.npmjs.com/package/jako">Check it on NPM 👌</a> ]
+  [ <a href="#getting-started">Getting started 🤓</a> | <a href="https://www.npmjs.com/package/dynamic-variables">Check it on NPM 👌</a> ]
 </p>
 
 
