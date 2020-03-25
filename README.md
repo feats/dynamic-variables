@@ -49,10 +49,8 @@ Then install it with either `npm install` or `yarn install`
 ```js
 import { env } from 'dynamic-variables'
 
+// it will be assigned 'API_SERVER_PUBLIC` in the browser and 'API_SERVER_CONTAINER' in the server
 const backendEndpoint = env(process.env.API_SERVER_PUBLIC, process.env.API_SERVER_CONTAINER)
-
-// backendEndpoint will be assigned 'API_SERVER_PUBLIC` in the browser
-//  ... and 'API_SERVER_CONTAINER' in the server
 ```
 
 
@@ -65,10 +63,8 @@ import { env, setDetector } from 'dynamic-variables'
 
 setDetector(() => process.browser ? 'BROWSER' : 'SSR')
 
+// it will be assigned 'API_SERVER_PUBLIC` in the browser and 'API_SERVER_CONTAINER' in the server
 const backendEndpoint = env({BROWSER: process.env.API_SERVER_PUBLIC, SSR: process.env.API_SERVER_CONTAINER})
-
-// backendEndpoint will be assigned 'API_SERVER_PUBLIC` in the browser
-//  ... and 'API_SERVER_CONTAINER' in the server
 ```
 
 #### Multiple services endpoints
