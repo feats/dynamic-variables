@@ -1,5 +1,5 @@
 {
-  "name": "@feats/endpoints",
+  "name": "dynamic-variables",
   "license": "MIT",
   "version": "1.0.0",
   "main": "index.js",

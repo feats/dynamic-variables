@@ -19,13 +19,13 @@ You can install it from one of these 3 options:
 #### with NPM
 
 ```bash
-  $ npm install @feats/dynamic-variables
+  $ npm install dynamic-variables
 ```
 
 #### with Yarn
 
 ```bash
-  $ yarn add @feats/dynamic-variables
+  $ yarn add dynamic-variables
 ```
 
 #### manually
@@ -34,7 +34,7 @@ you may also install it as a development dependency in a package.json file:
 ```json
   // package.json
   "dependencies": {
-    "@feats/dynamic-variables": "latest"
+    "dynamic-variables": "latest"
   }
 ```
 
@@ -47,7 +47,7 @@ Then install it with either `npm install` or `yarn install`
 ### Basic usage
 
 ```js
-import { env } from '@feats/dynamic-variables'
+import { env } from 'dynamic-variables'
 
 const backendEndpoint = env(process.env.API_SERVER_PUBLIC, process.env.API_SERVER_CONTAINER)
 
@@ -61,7 +61,7 @@ const backendEndpoint = env(process.env.API_SERVER_PUBLIC, process.env.API_SERVE
 #### Multiple named environments + Custom environment detector
 
 ```js
-import { env, setDetector } from '@feats/dynamic-variables'
+import { env, setDetector } from 'dynamic-variables'
 
 setDetector(() => process.browser ? 'BROWSER' : 'SSR')
 
@@ -74,7 +74,7 @@ const backendEndpoint = env({BROWSER: process.env.API_SERVER_PUBLIC, SSR: proces
 #### Multiple services endpoints
 
 ```js
-import environment, { env } from '@feats/dynamic-variables'
+import environment, { env } from 'dynamic-variables'
 
 module.exports = environment({
   redis: env(process.env.REDIS_CONTAINER),
