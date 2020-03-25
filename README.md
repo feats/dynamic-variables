@@ -96,7 +96,6 @@ I hope you enjoy using this tiny lib! 🎉
 <a href="https://feats.co">
   <p align="center"><img src="./.github/feats.png" width="171" /><p>
 </a>
-<br>
 
 <p align="center">
 <a href="https://feats.co">
