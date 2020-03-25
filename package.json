@@ -1,0 +1,12 @@
+{
+  "name": "@feats/endpoints",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "3.5.1"
+  }
+}
