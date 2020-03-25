@@ -28,13 +28,19 @@ const forceEnvironment = value => {
 
 const detectEnvironment = () => (storedEnvironment = detector())
 
-const env = (frontendVar, backendVar) => {
+const env = (primary, secondary) => {
   const environment =
     cacheEnvironment && storedEnvironment !== null ? storedEnvironment : detectEnvironment()
-  const value = environment && backendVar ? backendVar : frontendVar
 
   if (environment === null) {
     throw new Error('impossible to detect environment')
+  }
+
+  let value
+  if (primary === Object(primary)) {
+    value = primary[environment]
+  } else {
+    value = environment && secondary ? secondary : primary
   }
 
   if (value === undefined) {

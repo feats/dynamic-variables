@@ -66,6 +66,31 @@ test('caches environment and return the right variable', t => {
   t.is(env(1, 2), 2, `fetch the secondary environment`)
 })
 
+test('return the right variable under the advanced usage', t => {
+  const options = { BROWSER: 'BROWSER', SSR: 'SSR', BUILD: 'BUILD' }
+
+  forceEnvironment(options.BROWSER)
+  t.is(
+    env({ [options.BROWSER]: 1, [options.SSR]: 2, [options.BUILD]: 3 }),
+    1,
+    `fetch the primary environment`
+  )
+
+  forceEnvironment(options.SSR)
+  t.is(
+    env({ [options.BROWSER]: 1, [options.SSR]: 2, [options.BUILD]: 3 }),
+    2,
+    `fetch the secondary environment`
+  )
+
+  forceEnvironment(options.BUILD)
+  t.is(
+    env({ [options.BROWSER]: 1, [options.SSR]: 2, [options.BUILD]: 3 }),
+    3,
+    `fetch the tertiary environment`
+  )
+})
+
 test('execute all proxied functions', t => {
   const vars = () =>
     dynamicVariables({
