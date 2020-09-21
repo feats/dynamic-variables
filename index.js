@@ -1,3 +1,5 @@
+const { isPlainObject } = require('is-plain-object')
+
 let cacheEnvironment = true
 let storedEnvironment = null
 
@@ -21,7 +23,7 @@ const setDetector = (fn, cacheResult = true) => {
   storedEnvironment = null
 }
 
-const forceEnvironment = value => {
+const forceEnvironment = (value) => {
   cacheEnvironment = true
   storedEnvironment = value
 }
@@ -37,7 +39,7 @@ const env = (primary, secondary) => {
   }
 
   let value
-  if (primary === Object(primary)) {
+  if (isPlainObject(primary)) {
     value = primary[environment]
   } else {
     value = environment && secondary ? secondary : primary
@@ -50,7 +52,7 @@ const env = (primary, secondary) => {
   return value
 }
 
-const wrapper = obj => {
+const wrapper = (obj) => {
   try {
     return new Proxy(obj, {
       get: (target, name) =>

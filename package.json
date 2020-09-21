@@ -1,7 +1,7 @@
 {
   "name": "dynamic-variables",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -14,6 +14,9 @@
     "test": "ava"
   },
   "devDependencies": {
-    "ava": "3.5.1"
+    "ava": "3.12.1"
+  },
+  "dependencies": {
+    "is-plain-object": "^5.0.0"
   }
 }
