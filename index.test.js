@@ -7,7 +7,7 @@ const {
   default: dynamicVariables,
 } = require('./index')
 
-test('detects frontend/backend environments by default', t => {
+test('detects frontend/backend environments by default', (t) => {
   t.is(process.browser, undefined, 'the tests are not running in the browser')
   t.truthy(process.platform, 'the tests are running in a server/docker')
 
@@ -31,28 +31,40 @@ test('detects frontend/backend environments by default', t => {
   )
 })
 
-test('detects custom environments', t => {
+test('detects custom environments', (t) => {
   setDetector(() => process.env.ENV)
 
   process.env.ENV = 1
   t.is(detectEnvironment(), '1', `it is running in the custom environment '${process.env.ENV}'`)
 })
 
-test('return the right variable', t => {
+test('return the right variable', (t) => {
   let backend
   setDetector(() => backend, false)
 
   backend = false
-  t.is(env(1, 2), 1, `fetch the primary environment`)
+  t.is(
+    env(1, () => 2),
+    1,
+    `fetch the primary environment`
+  )
 
   backend = true
-  t.is(env(1, 2), 2, `fetch the secondary environment`)
+  t.is(
+    env(1, () => 2),
+    2,
+    `fetch the secondary environment`
+  )
 
   forceEnvironment(false)
-  t.is(env(1, 2), 1, `fetch the primary environment`)
+  t.is(
+    env(1, () => 2),
+    1,
+    `fetch the primary environment`
+  )
 })
 
-test('caches environment and return the right variable', t => {
+test('caches environment and return the right variable', (t) => {
   let backend
   setDetector(() => backend, true)
 
@@ -66,7 +78,7 @@ test('caches environment and return the right variable', t => {
   t.is(env(1, 2), 2, `fetch the secondary environment`)
 })
 
-test('return the right variable under the advanced usage', t => {
+test('return the right variable under the advanced usage', (t) => {
   const options = { BROWSER: 'BROWSER', SSR: 'SSR', BUILD: 'BUILD' }
 
   forceEnvironment(options.BROWSER)
@@ -91,10 +103,10 @@ test('return the right variable under the advanced usage', t => {
   )
 })
 
-test('execute all proxied functions', t => {
+test('execute all proxied functions', (t) => {
   const vars = () =>
     dynamicVariables({
-      A: env(1),
+      A: env(() => 1),
       B: () => env(0, 2), // env is calculated in runtime
       C: {
         D: env(3, 0), // env is calculated in build time
@@ -107,7 +119,7 @@ test('execute all proxied functions', t => {
     A: 1,
     B: 2,
     C: {
-      D: 3,
+      D: 0,
       E: 4,
     },
   })

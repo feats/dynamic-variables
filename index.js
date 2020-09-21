@@ -42,14 +42,14 @@ const env = (primary, secondary) => {
   if (isPlainObject(primary)) {
     value = primary[environment]
   } else {
-    value = environment && secondary ? secondary : primary
+    value = environment && secondary !== undefined ? secondary : primary
   }
 
   if (value === undefined) {
     throw new Error(`required variable could not be found`)
   }
 
-  return value
+  return value instanceof Function ? value() : value
 }
 
 const wrapper = (obj) => {
